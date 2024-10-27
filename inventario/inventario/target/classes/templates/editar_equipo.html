@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Equipo</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <header class="bg-primary text-white text-center py-3">
+        <h1>Inventario de Equipos</h1>
+    </header>
+
+    <main class="container my-4">
+        <h2>Editar Equipo</h2>
+        <!-- Formulario para editar un equipo existente -->
+        <form th:action="@{/equipos/{serial}(serial=${equipo.serial})}" method="post">
+            <div class="form-group">
+                <label for="serial">Serial:</label>
+                <!-- El campo de serial es solo lectura porque es el identificador -->
+                <input type="text" id="serial" name="serial" class="form-control" th:value="${equipo.serial}" readonly>
+            </div>
+            <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <!-- Campo para editar el nombre del equipo -->
+                <input type="text" id="nombre" name="nombre" class="form-control" th:value="${equipo.nombre}" required>
+            </div>
+            <div class="form-group">
+                <label for="marca">Marca:</label>
+                <!-- Campo para editar la marca del equipo -->
+                <input type="text" id="marca" name="marca" class="form-control" th:value="${equipo.marca}" required>
+            </div>
+            <div class="form-group">
+                <label for="modelo">Modelo:</label>
+                <!-- Campo para editar el modelo del equipo -->
+                <input type="text" id="modelo" name="modelo" class="form-control" th:value="${equipo.modelo}" required>
+            </div>
+            <div class="form-group">
+                <label for="factura">Factura:</label>
+                <!-- Campo para editar la factura -->
+                <input type="text" id="factura" name="factura" class="form-control" th:value="${equipo.factura}">
+            </div>
+            <div class="form-group">
+                <label for="estado">Estado:</label>
+                <!-- Campo para editar el estado del equipo -->
+                <input type="text" id="estado" name="estado" class="form-control" th:value="${equipo.estado}">
+            </div>
+            <div class="form-group">
+                <label for="usuario">Usuario:</label>
+                <!-- Campo para editar el usuario responsable del equipo -->
+                <input type="text" id="usuario" name="usuario" class="form-control" th:value="${equipo.usuario}">
+            </div>
+            <!-- Botón para enviar el formulario y actualizar el equipo -->
+            <button type="submit" class="btn btn-primary">Actualizar Equipo</button>
+            <!-- Botón para cancelar y regresar a la lista de equipos -->
+            <a th:href="@{/equipos}" class="btn btn-secondary">Cancelar</a>
+        </form>
+    </main>
+
+    <footer class="text-center mt-4">
+        <p>&copy; 2024 Inventario de Equipos</p>
+    </footer>
+</body>
+</html>

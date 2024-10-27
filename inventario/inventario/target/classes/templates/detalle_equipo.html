@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Equipo</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <header class="bg-primary text-white text-center py-3">
+        <h1>Inventario de Equipos</h1>
+    </header>
+
+    <main class="container my-4">
+        <h2>Detalles del Equipo</h2>
+        <!-- Mostrando detalles del equipo seleccionado -->
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Serial: <span th:text="${equipo.serial}"></span></h5>
+                <p class="card-text">Nombre: <span th:text="${equipo.nombre}"></span></p>
+                <p class="card-text">Marca: <span th:text="${equipo.marca}"></span></p>
+                <p class="card-text">Modelo: <span th:text="${equipo.modelo}"></span></p>
+                <p class="card-text">Factura: <span th:text="${equipo.factura}"></span></p>
+                <p class="card-text">Estado: <span th:text="${equipo.estado}"></span></p>
+                <p class="card-text">Usuario: <span th:text="${equipo.usuario}"></span></p>
+            </div>
+        </div>
+
+        <!-- Botones para editar, eliminar o regresar a la lista de equipos -->
+        <div class="mt-4">
+            <a th:href="@{/equipos/{serial}/editar(serial=${equipo.serial})}" class="btn btn-primary">Editar</a>
+            <form th:action="@{/equipos/{serial}(serial=${equipo.serial})}" method="post" class="d-inline">
+                <input type="hidden" name="_method" value="delete"/>
+                <button type="submit" class="btn btn-danger" onclick="return confirm('¿Estás seguro de que deseas eliminar este equipo?')">Eliminar</button>
+            </form>
+            <a th:href="@{/equipos}" class="btn btn-secondary">Regresar a la Lista</a>
+        </div>
+    </main>
+
+    <footer class="text-center mt-4">
+        <p>&copy; 2024 Inventario de Equipos</p>
+    </footer>
+</body>
+</html>

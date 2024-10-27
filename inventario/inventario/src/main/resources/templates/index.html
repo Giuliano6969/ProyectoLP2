@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio - Inventario de Equipos</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <header>
+        <h1>Inventario de Equipos</h1>
+        <nav>
+            <ul class="nav">
+                <!-- Enlaces principales de navegación -->
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/equipos}">Listar Equipos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/equipos/nuevo}">Agregar Nuevo Equipo</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h2>Bienvenido al Sistema de Inventario de Equipos</h2>
+        <p>Aquí puedes gestionar el inventario de tus equipos: listar, agregar, editar o eliminar los equipos según sea necesario.</p>
+    </main>
+
+    <footer class="text-center mt-4">
+        <p>&copy; 2024 Inventario de Equipos</p>
+    </footer>
+</body>
+</html>
